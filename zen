@@ -1,0 +1,38 @@
+#!/bin/sh
+
+DIR=$(dirname $1)
+FILE=$1
+FILENAME="${FILE%.*}"
+EXTENSION="${FILE##*.}" 
+OUTPUT=$FILENAME'_'$EXTENSION
+echo "$FILE"
+echo "$FILENAME"
+echo "$DIR"
+echo "$OUTPUT"
+
+makecpp(){
+    mkdir -p $DIR/output
+    echo "Your output"
+    g++ -o $OUTPUT $FILE
+    mv $OUTPUT $DIR/output/
+    cd $DIR/output/
+    ./$OUTPUT
+ }
+
+
+makec(){
+    mkdir -p $DIR/output
+    echo "Your output"
+    gcc -o $OUTPUT $FILE
+    mv $OUTPUT $DIR/output/
+    cd $DIR/output/
+    ./$OUTPUT
+ }
+
+
+case "$EXTENSION" in 
+   "cpp") makecpp
+      ;;
+   "c") makec
+      ;;
+esac

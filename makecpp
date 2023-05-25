@@ -1,0 +1,28 @@
+#!/bin/sh
+
+#This script executes cpp programs with just command
+#Eg: makecpp <name of the cpp program>
+# makecpp sample.cpp
+
+
+
+
+
+
+#Creates the 'output' directory in the source directory
+mkdir -p $(dirname $1)/output
+
+echo "Your output"
+
+#Generates the object file 
+g++ -o $(basename $1 .cpp) $1
+
+#Moves the class file to the output folder in the source directory
+mv $(basename $1 .cpp) $(dirname $1)/output/
+
+cd $(dirname $1)/output/
+
+#Executes the class file and displays the output
+./$(basename $1 .cpp)
+
+

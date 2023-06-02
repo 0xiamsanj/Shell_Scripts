@@ -5,10 +5,6 @@ DIR=$(dirname $1)
 FILENAME="${FILE%.*}"
 EXTENSION="${FILE##*.}" 
 OUTPUT=$FILENAME'_'$EXTENSION
-echo "$FILE"
-echo "$FILENAME"
-echo "$DIR"
-echo "$OUTPUT"
 
 makecpp(){
     mkdir -p $DIR/output

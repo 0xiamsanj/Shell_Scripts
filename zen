@@ -3,7 +3,7 @@
 FILE=$(basename $1)
 DIR=$(dirname $1)
 FILENAME="${FILE%.*}"
-EXTENSION="${FILE##*.}"
+EXTENSION="${FILE##*.}" 
 OUTPUT=$FILENAME'_'$EXTENSION
 
 makecpp(){
@@ -36,7 +36,7 @@ makec(){
 
  }
 
-case "$EXTENSION" in
+case "$EXTENSION" in 
    "cpp") makecpp
       ;;
    "c") makec
